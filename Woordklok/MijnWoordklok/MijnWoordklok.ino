@@ -64,7 +64,7 @@ int Arraywijzer[]={1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,5,2,2,2,2,2,2,2,2,2,0,1
 void loop() {
  int Arrayminuut[]= {1,3,7,15,16,17,19,23,31,32,33,35,39,47,64,65,67,71,79,0,175,167,163,145,144,143,135,131,129,128,129,131,135,143,144,145,147,151,159,0,47,39,35,1,64,47,39,35,33,32,31,23,19,17,16,15,7,3,1};
 int Arraywijzer[]={1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,5,2,2,2,2,2,2,2,2,2,0,1,1,1,1,1,1,1,1,1,6,6,6,6,6,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2};
-int Uur=8;
+int Uur=0;
 int minuut=0;
 int hulpuur=0;
 
@@ -77,12 +77,13 @@ if ( Uur==12 ){
    Uur = 0;}  // max 12 uren
   hulpuur=Uur;
   
-  if ( hulpuur==12 ){
-   hulpuur = 0;}  // max 12 uren
+ 
    
 if ( minuut >20 ){
  hulpuur = Uur+1;}
-  
+ 
+   if ( hulpuur==12 ){
+   hulpuur = 0;}  // max 12 uren
 
    dataUur = dataArrayUur[hulpuur];
    dataBLEU = Arrayminuut[minuut];
@@ -91,9 +92,9 @@ if ( minuut >20 ){
     //latchPin laag net zo lang dat we data transmitting
   digitalWrite(latchPin, 0);
     //verstuur data
-shiftOut(dataPin, clockPin,MSBFIRST, dataBLEU);
+shiftOut(dataPin, clockPin,MSBFIRST,dataBLEU);
   shiftOut(dataPin,clockPin,MSBFIRST,dataUur);
-shiftOut(dataPin,clockPin,MSBFIRST, dataGREEN);   
+shiftOut(dataPin,clockPin,MSBFIRST,dataGREEN);   
 
 
     //zet de latchPin hoog zodra alle data verzonden is
@@ -103,14 +104,14 @@ Serial.print(":") ;
 
 //Serial.print(hulpuur) ;
 //Serial.print(":") ;
-//Serial.print(minuut) ;
+Serial.print(minuut) ;
 //Serial.print(":") ;
 //Serial.print(dataUur) ;
 //Serial.print(":") ;
 //Serial.print(dataGREEN) ;
 //Serial.print(":") ;
 //Serial.print(dataBLEU) ;
-//Serial.println() ;
+Serial.println() ;
    delay(100);
   //}
 }
