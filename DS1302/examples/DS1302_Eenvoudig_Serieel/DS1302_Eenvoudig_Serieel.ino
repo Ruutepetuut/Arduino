@@ -39,10 +39,10 @@ void setup()
   // Setup Serial connection
   Serial.begin(9600);
 
-  // The following lines can be commented out to use the values already stored in the DS1302
-  rtc.setDOW(TUESDAY);        // Weekdag instellen op dinsdag
-  rtc.setTime(20, 50,30 );     // Tijd instellen op 20 u 50 min 30 sec
-  rtc.setDate(15, 12, 2015);   // Datum instellen op 15 december 2015
+  // TIJD INSTELLEN -> COMMENTAAR VERWIJDEREN
+  //rtc.setDOW(TUESDAY);        // Weekdag instellen op dinsdag
+  //rtc.setTime(18, 52,30 );     // Tijd instellen op 20 u 50 min 30 sec
+  //rtc.setDate(26, 01, 2016);   // Datum instellen op 15 december 2015
 }
 
 void loop()
